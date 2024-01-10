@@ -1,0 +1,13 @@
+{
+  "name": "Snippets for all files",
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "all",
+        ],
+        "path": "./all.lua"
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "TeX Snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "md"
+          "markdown"
+        ],
+        "path": "./md.lua"
+      }
+    ]
+  }
+}
