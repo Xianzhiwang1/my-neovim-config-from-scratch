@@ -49,6 +49,9 @@ return require('packer').startup(function(use)
 	-- Tex
 	use("lervag/vimtex")
 
+    -- popup
+    use("nvim-lua/popup.nvim")
+
 
 end)
 

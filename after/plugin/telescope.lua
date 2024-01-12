@@ -1,4 +1,4 @@
-
+-- for telescope
 local builtin = require('telescope.builtin')
 -- <C-p> Ctrl + p ?
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})

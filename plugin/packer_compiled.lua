@@ -84,10 +84,20 @@ _G.packer_plugins = {
     path = "/home/xianzhiwang/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
+  ["cmp-cmdline"] = {
+    loaded = true,
+    path = "/home/xianzhiwang/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/xianzhiwang/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["cmp-nvim-lsp-signature-help"] = {
+    loaded = true,
+    path = "/home/xianzhiwang/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp-signature-help",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help"
   },
   ["cmp-nvim-lua"] = {
     loaded = true,
@@ -119,11 +129,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/xianzhiwang/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
-  },
-  ["lsp-zero.nvim"] = {
-    loaded = true,
-    path = "/home/xianzhiwang/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
-    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -164,6 +169,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/xianzhiwang/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["popup.nvim"] = {
+    loaded = true,
+    path = "/home/xianzhiwang/.local/share/nvim/site/pack/packer/start/popup.nvim",
+    url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  ["telescope-file-browser.nvim"] = {
+    loaded = true,
+    path = "/home/xianzhiwang/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
+    url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
