@@ -1,5 +1,5 @@
 local ls = require("luasnip")
-local utils = require("user.snippets.tex.utils")
+local utils = require("xianzhiwang1.snippets.tex.utils")
 local s = ls.snippet
 local sn = ls.snippet_node
 local isn = ls.indent_snippet_node

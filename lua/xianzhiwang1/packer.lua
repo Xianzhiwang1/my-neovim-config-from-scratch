@@ -12,6 +12,10 @@ return require('packer').startup(function(use)
 		-- or                            , branch = '0.1.x',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
+    use {
+    "nvim-telescope/telescope-file-browser.nvim",
+    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+}
 	-- color
 	use {'morhetz/gruvbox', config = function() vim.cmd.colorscheme("gruvbox") end }
 	-- treesitter
@@ -23,25 +27,9 @@ return require('packer').startup(function(use)
 	use('mbbill/undotree')
 	-- vim-fugitive
 	use('tpope/vim-fugitive')
-	-- lsp-zero
-	use {
-		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v3.x',
-		requires = {
-			--- Uncomment the two plugins below if you want to manage the language servers from neovim
-			--- and read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
-			-- {'williamboman/mason.nvim'},
-			-- {'williamboman/mason-lspconfig.nvim'},
-
-			-- LSP Support
-			{'neovim/nvim-lspconfig'},
-			-- Autocompletion
-			{'hrsh7th/nvim-cmp'},
-			{'hrsh7th/cmp-nvim-lsp'},
-			{'L3MON4D3/LuaSnip'},
-		}
-	}
+	-- not use lsp-zero
 	-- plugins necessary for after/plugin/lsp.lua
+    -- cmp plugins
 	use('neovim/nvim-lspconfig')
 	use('williamboman/mason.nvim')
 	use('williamboman/mason-lspconfig.nvim')
@@ -49,9 +37,11 @@ return require('packer').startup(function(use)
 	use('hrsh7th/cmp-nvim-lsp')
 	use('hrsh7th/cmp-buffer')
 	use('hrsh7th/cmp-path')
+	use('hrsh7th/cmp-cmdline')
+	use('hrsh7th/cmp-nvim-lua')
+	use('hrsh7th/cmp-nvim-lsp-signature-help')
 	-- Snippets
 	use('saadparwaiz1/cmp_luasnip')
-	use('hrsh7th/cmp-nvim-lua')
 	-- Snippets
 	use('L3MON4D3/LuaSnip')
 	use('rafamadriz/friendly-snippets')

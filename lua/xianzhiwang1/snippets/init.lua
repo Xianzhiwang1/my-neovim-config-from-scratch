@@ -5,8 +5,8 @@ ls.config.setup({ enable_autosnippets = true })
 local lualoader = require("luasnip.loaders.from_lua")
 lualoader.load({
   paths = {
-    "~/.config/nvim/lua/user/snippets/tex",
-    "~/.config/nvim/lua/user/snippets/all",
-    "~/.config/nvim/lua/user/snippets/md",
+    "~/.config/nvim/lua/xianzhiwang1/snippets/tex",
+    "~/.config/nvim/lua/xianzhiwang1/snippets/all",
+    "~/.config/nvim/lua/xianzhiwang1/snippets/md",
   },
 })
