@@ -54,7 +54,7 @@ cmp.setup({
         end, { "i", "s" }),
         ["<Right>"] = cmp.mapping(function() luasnip.jump(1) end, { "i", "s" }),
         ["<Left>"] = cmp.mapping(function() luasnip.jump(-1) end, { "i", "s" }),
-        ["<Return>"] = cmp.mapping(function(fallback)
+        ["<CR>"] = cmp.mapping(function(fallback)
             if cmp.visible() and cmp.get_active_entry() then
                 cmp.confirm()
             else
@@ -63,6 +63,12 @@ cmp.setup({
         end, { "i", "s" }),
         ["<Up>"] = cmp.mapping(function() cmp.select_prev_item() end, { "i", "s" }),
         ["<Down>"] = cmp.mapping(function() cmp.select_next_item() end, { "i", "s" }),
+--        ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+        ["<C-y>"] = cmp.mapping.confirm { select = true },
+        ["<C-e>"] = cmp.mapping {
+            i = cmp.mapping.abort(),
+            c = cmp.mapping.close(),
+        },
     },
     sources = { { name = "luasnip" }, { name = "nvim_lsp" }, { name = "path" }  },
     formatting = {
