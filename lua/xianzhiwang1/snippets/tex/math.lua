@@ -72,6 +72,7 @@ local autosnippets = {
     s({ trig = "ZZ" }, { t("\\mathbb{Z}") }, auto_default_opts),
     s({ trig = "FF" }, { t("\\mathbb{F}") }, auto_default_opts),
     s({ trig = "PP" }, { t("\\mathbb{P}") }, auto_default_opts),
+    s({ trig = "VV" }, { t("\\mathbb{V}") }, auto_default_opts),
     s({ trig = "sbst" }, { t("\\subseteq") }, auto_default_opts),
     s({ trig = "spst" }, { t("\\supseteq") }, auto_default_opts),
     s({ trig = "<<" }, { t("\\langle") }, auto_default_opts),
