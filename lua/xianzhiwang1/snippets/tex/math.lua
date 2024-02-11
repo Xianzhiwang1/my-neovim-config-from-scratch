@@ -16,6 +16,14 @@ local m = require("luasnip.extras").m
 local lambda = require("luasnip.extras").l
 local postfix = require("luasnip.extras.postfix").postfix
 
+-- from github.com/evesdropper/luasnip-latex-snippets.nvim
+local tex = require("luasnip-latex-snippets.luasnippets.tex.utils.conditions")
+local postfix_snippet = require("luasnip-latex-snippets.luasnippets.tex.utils.scaffolding").postfix_snippet
+
+
+
+
+
 local math_types = {
     mbb = "mathbb",
     mbf = "mathbf",
@@ -78,19 +86,46 @@ local autosnippets = {
     s({ trig = "<<" }, { t("\\langle") }, auto_default_opts),
     s({ trig = ">>" }, { t("\\rangle") }, auto_default_opts),
     s({ trig = "emp" }, { t("\\varnothing") }, auto_default_opts),
+    s({ trig = "td" }, { t("^{"), i(1), t("}"), i(0) }, auto_default_opts),
+
+    -- postfix
     postfix({ trig = "cq" }, utils.trailing({ t("^3") }), auto_default_opts),
     postfix({ trig = "tp" }, utils.trailing({ t("^T") }), auto_default_opts),
+    -- auto superscript
     postfix({ trig = "td" }, utils.trailing({ t("^{"), i(1), t("}"), i(0) }),
         auto_default_opts),
+    -- auto subscript
     postfix({ trig = "__" }, utils.trailing({ t("_{"), i(1), t("}"), i(0) }),
         auto_default_opts),
+    -- auto inverse
     postfix({ trig = "inv" }, utils.trailing({ t("^{-1}") }), auto_default_opts),
+    -- does not work?
     postfix({ trig = "([%a}]+)(%d)", regTrig = true }, {
         f(
             function(_, parent)
                 return parent.captures[1] .. "_" .. parent.captures[2]
             end),
     }, auto_default_opts),
+    -- auto subscript
+s({ trig='([%a}]+)(%d)', regTrig=true, name='auto subscript', dscr='audo substript for 1 digit'},
+    fmt([[<>_<>]],
+    { f(function(_, snip) return snip.captures[1] end),
+    f(function(_, snip) return snip.captures[2] end) },
+    { delimiters='<>' }),
+        auto_default_opts
+    ),
+
+    -- auto subscript from https://evesdropper.dev/
+s({ trig='([%a}]+)_(%d%d)', regTrig=true, name='auto subscript 2', dscr='auto subscript for 2+ digits'},
+    fmt([[<>_{<>}]],
+    { f(function(_, snip) return snip.captures[1] end),
+    f(function(_, snip) return snip.captures[2] end)},
+    { delimiters='<>' }),
+        auto_default_opts
+    ),
+
+
+    -- norm
     postfix({ trig = "([%a%d^{}\\-]+)nrm", regTrig = true }, {
         t("\\lVert "),
         f(function(_, parent) return parent.captures[1] end),
@@ -118,9 +153,11 @@ for k, v in pairs(utils.GREEK_LETTERS) do
     table.insert(autosnippets, snip)
 end
 
+-- this seems not working
 for k, v in pairs(math_types) do
     local snip = postfix({
         trig = "([%a%d{}\\]*)" .. k,
+        -- trig = "(%a%d+)" .. k,
         regTrig = true,
         hidden = true,
     }, {
@@ -130,6 +167,27 @@ for k, v in pairs(math_types) do
             end),
     }, auto_default_opts)
     table.insert(autosnippets, snip)
+end
+
+-- a possible implementation of hat using regex triggers and function nodes
+-- seems not working
+s({ trig='(%a)+hat', regTrig=true, name='hats', dscr='hats'},
+    fmt([[\hat{<>}]],
+    { f(function(_, snip) return snip.captures[1] end)},
+    { delimiters='<>' }
+    ))
+-- implemented in evesdropper/luasnip-latex-snippets.nvim
+-- my local implementation seems not working
+local postfix_math_snippets = {}
+for k, v in pairs(utils.POSTFIX_MATH_SPECS) do
+table.insert(
+    postfix_math_snippets,
+    postfix_snippet(
+        vim.tbl_deep_extend("keep", { trig = k, snippetType = "autosnippet" }, v.context),
+        v.command,
+        { condition = tex.in_math }
+    )
+)
 end
 
 for a = 2, 8, 1 do

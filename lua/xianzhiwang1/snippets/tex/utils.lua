@@ -66,11 +66,86 @@ local greek_letters = {
   z = "zeta",
 }
 
+local postfix_math_specs = {
+    mbb = {
+        context = {
+            name = "mathbb",
+            dscr =  "math blackboard bold",
+        },
+        command = {
+            pre = [[\mathbb{]],
+            post = [[}]],
+        }
+    },
+    cal = {
+        context = {
+            name = "mathcal",
+            dscr =  "math calligraphic",
+        },
+        command = {
+            pre = [[\mathcal{]],
+            post = [[}]],
+        }
+    },
+    scr = {
+        context = {
+            name = "mathscr",
+            dscr =  "math script",
+        },
+        command = {
+            pre = [[\mathscr{]],
+            post = [[}]],
+        },
+    },
+    mfr = {
+        context = {
+            name = "mathfrak",
+            dscr =  "mathfrak",
+        },
+        command = {
+            pre = [[\mathfrak{]],
+            post = [[}]],
+        },
+    },
+    hat = {
+		context = {
+			name = "hat",
+			dscr = "hat",
+		},
+		command = {
+            pre = [[\hat{]],
+            post = [[}]],
+        }
+	},
+	bar = {
+		context = {
+			name = "bar",
+			dscr = "bar (overline)",
+		},
+		command = {
+            pre = [[\overline{]],
+            post = [[}]]
+        }
+	},
+	tld = {
+		context = {
+			name = "tilde",
+            priority = 500,
+			dscr = "tilde",
+		},
+		command = {
+            pre = [[\tilde{]],
+            post = [[}]]
+        }
+	}
+}
+
 return {
   in_mathzone = in_mathzone,
   notin_mathzone = notin_mathzone,
   trailing = trailing,
   GREEK_LETTERS = greek_letters,
+  POSTFIX_MATH_SPECS = postfix_math_specs,
   create_env_snip = create_env_snip,
 }
 

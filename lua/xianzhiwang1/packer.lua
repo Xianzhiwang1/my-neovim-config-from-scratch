@@ -60,6 +60,9 @@ return require('packer').startup(function(use)
     }
     -- for formatters and linters
     -- use { "jose-elias-alvarez/null-ls.nvim", commit = "c0c19f32b614b3921e17886c541c13a72748d450" }
+    use {
+    "evesdropper/luasnip-latex-snippets.nvim",
+    }
 end)
 
 

@@ -135,6 +135,11 @@ _G.packer_plugins = {
     path = "/home/xianzhiwang/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["luasnip-latex-snippets.nvim"] = {
+    loaded = true,
+    path = "/home/xianzhiwang/.local/share/nvim/site/pack/packer/start/luasnip-latex-snippets.nvim",
+    url = "https://github.com/evesdropper/luasnip-latex-snippets.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/xianzhiwang/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",

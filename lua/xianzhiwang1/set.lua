@@ -68,3 +68,4 @@ vim.g.vimtex_compiler_latexmk = {
     "-output-directory=build",
   },
 }
+
