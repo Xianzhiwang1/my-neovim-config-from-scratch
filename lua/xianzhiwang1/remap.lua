@@ -83,14 +83,16 @@ vim.api.nvim_command([[
 -- keymap("i", "jk", "<Esc>", term_opts)
 -- keymap("i", "kj", "<Esc>", term_opts)
 
+-- control d go half page down, zz makes cursor stay centered
+-- control u go half page up, zz makes cursor stay centered
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-
-
-
+-- y yank within neovim, Y yank to system clipboard
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({"n", "v"}, "<leader>Y", [["+Y]])
 
 
 
