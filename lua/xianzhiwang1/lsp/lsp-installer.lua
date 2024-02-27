@@ -98,4 +98,12 @@ mason_lsp.setup_handlers({
             }
         })
     end,
+    ["jdtls"] = function()
+        lspconfig.jdtls.setup({
+            on_attach = on_attach,
+            settings = {
+                ["jdtls"] = {}
+            }
+        })
+    end,
 })

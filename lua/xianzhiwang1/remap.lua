@@ -83,7 +83,10 @@ vim.api.nvim_command([[
 -- keymap("i", "jk", "<Esc>", term_opts)
 -- keymap("i", "kj", "<Esc>", term_opts)
 
-
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
 
 
 
