@@ -62,6 +62,15 @@ return require('packer').startup(function(use)
     -- use { "jose-elias-alvarez/null-ls.nvim", commit = "c0c19f32b614b3921e17886c541c13a72748d450" }
     -- snippets
     -- use {"evesdropper/luasnip-latex-snippets.nvim",}
+
+    -- markdown preview
+    -- install without yarn or npm
+    --use({
+    --    "iamcco/markdown-preview.nvim",
+    --    run = function() vim.fn["mkdp#util#install"]() end,
+    --})
+
+    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 end)
 
 

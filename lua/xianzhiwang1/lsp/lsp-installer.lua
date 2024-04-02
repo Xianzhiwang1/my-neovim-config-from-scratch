@@ -77,19 +77,22 @@ mason_lsp.setup_handlers({
             on_attach = on_attach,
             settings = {
                 python = {
-                    analysis = { typeCheckingMode = "basic" },
-                    pythonPath = ".venv/bin/python",
-                    venvPath = ".venv",
+                    -- analysis = { typeCheckingMode = "basic" },
+                    -- pythonPath = "/bin/python3",
+                    -- pythonPath = ".venv/bin/python",
+                    -- venvPath = ".venv",
                 },
             },
         })
     end,
+
     ["clangd"] = function()
         lspconfig.clangd.setup({
             on_attach = on_attach,
             settings = { CompileFlags = { std = "c11", compiler = "gcc" } },
         })
     end,
+
     ["rust_analyzer"] = function()
         lspconfig.rust_analyzer.setup({
             on_attach = on_attach,
