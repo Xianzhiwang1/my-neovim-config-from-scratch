@@ -90,12 +90,19 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- y yank within neovim, Y yank to system clipboard
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
-vim.keymap.set({"n", "v"}, "<leader>Y", [["+Y]])
+-- leader y and leader Y both yank to system clipboard
+vim.keymap.set({"n", "v"}, "<leader>y", [["+yg_]])
+-- vim.keymap.set({"n", "v"}, "<leader>Y", [["+Y]])
+vim.keymap.set({"n", "v"}, "<leader>Y", [["+yg_]])
+-- yy yank to the End of Line EOL or yank the entire line?
+vim.keymap.set({"n", "v"}, "<leader>yy", [["+yy]])
 
+-- paste from clipboard
+vim.keymap.set({"n", "v"}, "<leader>p", [["+p]])
+vim.keymap.set({"n", "v"}, "<leader>P", [["+P]])
 
-
+-- always use system clipboard for all yank delete change and put operations
+vim.api.nvim_set_option("clipboard","unnamed")
 
 
 
